@@ -11,19 +11,9 @@ public class BaseBall {
     private int none;
 
     public BaseBall() {
-    }
-
-
-    public void setBall(int ball) {
-        this.ball = ball;
-    }
-
-    public void setStrike(int strike) {
-        this.strike = strike;
-    }
-
-    public void setNone(int none) {
-        this.none = none;
+        this.ball = 0;
+        this.strike = 0;
+        this.none = 0;
     }
 
     public int getBall() {

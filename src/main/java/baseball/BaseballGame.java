@@ -15,11 +15,16 @@ public class BaseballGame {
 
     private List<Integer> answer;
 
-    public String restart;
+    public String restart = START_NUMBER;
 
-    BaseBall baseBall;
+    private BaseBall baseBall;
 
     public BaseballGame(){
+        baseBall = new BaseBall();
+    }
+
+    public BaseBall getBaseBall(){
+        return this.baseBall;
     }
 
     public void calculateScore(String input){
@@ -30,10 +35,9 @@ public class BaseballGame {
         calculateNone(input);
     }
 
-    public void processStartGame(String input){
+    public void processStartGame(){
         init();
         startComment();
-        checkInputData(input);
     }
 
     private void init(){
@@ -81,7 +85,7 @@ public class BaseballGame {
     }
 
     private void startComment(){
-        System.out.println(START_COMMENT);
+        System.out.print(START_COMMENT);
     }
 
     public void endComment(){
@@ -104,7 +108,7 @@ public class BaseballGame {
         System.out.println(RE_START_COMMET);
     }
 
-    private void checkInputData(String input){
+    public void checkInputData(String input){
         if(!isInteger(input) || !has3Length(input)){
             throw new IllegalArgumentException();
         }
