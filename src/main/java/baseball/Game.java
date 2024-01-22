@@ -17,23 +17,18 @@ public class Game {
      */
     public void playBaseballGame(){
         BaseballGame ballGame = new BaseballGame();
+        ballGame.init();
 
-        String input;
         while(ballGame.restartEquals1()){
-            ballGame.processStartGame();
-            // 외부 값을 입력받습니다.
-            input = getUserInput();
+            ballGame.startProcess();
 
-            ballGame.checkInputData(input);
-            ballGame.calculateScore(input);
-            ballGame.generateResultComment();
+            ballGame.middleProcess(getUserInput());
 
-            ballGame.processEndGame(input);
-
-            // 외부 값을 입력받습니다.
-            if(ballGame.getBaseBall().has3Strike()){
-                input = getUserInput();
+            if(ballGame.has3Strike()){
+                ballGame.endComment();
+                ballGame.generateNextGame(getUserInput());
             }
+            ballGame.resetBallScore();
         }
     }
 
